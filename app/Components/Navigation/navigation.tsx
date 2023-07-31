@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "../Contain";
 import Logo from "./Logo";
 import Search from "./Search";
+import UserMenu from "./UserMenu";
 
 export function Navigation() {
   return (
@@ -11,6 +12,7 @@ export function Navigation() {
           <div className="flex flex-row justify-between gap-3 md:gap-0">
             <Logo />
             <Search />
+            <UserMenu />
           </div>
         </Container>
       </div>
