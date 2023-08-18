@@ -1,10 +1,7 @@
 import "./globals.css";
-import { Navigation as Navbar } from "./Components/Navigation/navigation";
+import { Navigation as Navbar } from "../Navigation/navigation";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import { Modal } from "./Components/modals/modal";
-import { useCallback } from "react";
-
 const inter = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
