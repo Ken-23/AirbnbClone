@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { IconType } from "react-icons";
 
@@ -14,6 +15,8 @@ export default function Button(props: ButtonProps) {
   const { label, onClick, disabled, outline, small, Icon } = props;
   return (
     <button
+      onClick={onClick}
+      disabled={disabled}
       className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full ${
         outline ? "bg-white" : "bg-rose-500"
       } ${outline ? "text-black" : "text-white"} ${small ? "py-1" : "py-3"} ${

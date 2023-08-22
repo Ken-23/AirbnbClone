@@ -1,13 +1,13 @@
+"use client";
 import "./globals.css";
 import { Navigation as Navbar } from "./Components/Navigation/navigation";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import { Modal } from "./Components/modals/modal";
-import { useCallback } from "react";
+import RegisterModal from "./Components/modals/RegisterModal";
 
 const inter = Nunito({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Airbnb",
   description: "Airbnb Clone",
 };
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Modal title="Hello " isOpen />
+        <RegisterModal />
         <Navbar />
       </body>
     </html>

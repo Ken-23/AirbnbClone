@@ -7,6 +7,7 @@ import Button from "../Navigation/Button";
 interface ModalProps {
   isOpen?: boolean;
   onClose: () => void;
+  actionLabel?: string;
   onSubmit: () => void;
   title?: string;
   body?: React.ReactNode;
@@ -18,6 +19,7 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = ({
   isOpen = false,
+  actionLabel,
   onClose,
   onSubmit,
   title,
@@ -80,7 +82,19 @@ export const Modal: React.FC<ModalProps> = ({
                   className="flex flex-row items-center gap-4 w-full
                 "
                 >
-                  <Button label="My Botton" />
+                  {secondaryAction && secondaryLabel && (
+                    <Button
+                      outline
+                      disabled={disable}
+                      label={secondaryLabel}
+                      onClick={secondaryAction}
+                    />
+                  )}
+                  <Button
+                    disabled={disable}
+                    label={actionLabel || ""}
+                    onClick={handleSubmit}
+                  />
                 </div>
               </div>
             </div>
