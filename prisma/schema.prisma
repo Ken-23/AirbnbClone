@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model ExampleModel {
+model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   email String? @unique
   name String?
@@ -33,6 +33,15 @@ model Accounts {
   type String
   provider String
   providerAccountId String
-  refress_token String? @db.ObjectId
+  refress_token String? @db.String
   access_token String? @db.String
+  expires_at Int?
+  token_type String
+  scope String?
+  id_token String? @db.String
+  session_state String?
+
+  user User @relation(fields: [userId],references: [id], onDelete: Cascade)
+
+  @@unique([provider,providerAccountId])
 }
