@@ -10,6 +10,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { Modal } from "./modal";
 import Heading from "./Heading";
 import Input from "./Input";
+import { toast } from "react-hot-toast";
 
 export default function RegisterModal() {
   const registerModal = useRegisterModal();
@@ -30,14 +31,13 @@ export default function RegisterModal() {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-
     axios
       .post("/api/register", data)
       .then(() => {
         registerModal.onClose();
       })
       .catch((error) => {
-        console.error(error);
+        toast.error("Something went wrong");
       });
 
     setIsLoading(false);
@@ -64,6 +64,7 @@ export default function RegisterModal() {
       />
       <Input
         id="password"
+        type="password"
         label="Password"
         disabled={isLoading}
         register={register}
